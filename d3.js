@@ -274,7 +274,7 @@ d3 = function() {
       }
     }
   });
-  var d3_map_prefix = "\x00", d3_map_prefixCode = d3_map_prefix.charCodeAt(0);
+  var d3_map_prefix = "\0", d3_map_prefixCode = d3_map_prefix.charCodeAt(0);
   d3.nest = function() {
     var nest = {}, keys = [], sortKeys = [], sortValues, rollup;
     function map(mapType, array, depth) {
@@ -4677,7 +4677,7 @@ d3 = function() {
     var x0 = extent[0][0], x1 = extent[1][0], y0 = extent[0][1], y1 = extent[1][1], cells = d3_geom_voronoiCells, iCell = cells.length, cell, iLeft, iRight, halfEdges, nHalfEdges, edge, start, end, va, vb;
     while (iCell--) {
       cell = cells[iCell];
-      if (!cell.prepare()) continue;
+      if (!cell || !cell.prepare()) continue;
       halfEdges = cell.edges;
       nHalfEdges = halfEdges.length;
       iLeft = 0;
