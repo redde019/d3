@@ -1,3 +1,5 @@
+import "abs";
+
 var π = Math.PI,
     ε = 1e-6,
     ε2 = ε * ε,
