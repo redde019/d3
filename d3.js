@@ -274,7 +274,7 @@ d3 = function() {
       }
     }
   });
-  var d3_map_prefix = "\0", d3_map_prefixCode = d3_map_prefix.charCodeAt(0);
+  var d3_map_prefix = "\x00", d3_map_prefixCode = d3_map_prefix.charCodeAt(0);
   d3.nest = function() {
     var nest = {}, keys = [], sortKeys = [], sortValues, rollup;
     function map(mapType, array, depth) {
@@ -4842,10 +4842,10 @@ d3 = function() {
   }
   d3_geom_voronoiHalfEdge.prototype = {
     start: function() {
-      return this.edge.l === this.site ? this.edge[0] : this.edge[1];
+      return this.edge[+(this.edge.l !== this.site)];
     },
     end: function() {
-      return this.edge.l === this.site ? this.edge[1] : this.edge[0];
+      return this.edge[+(this.edge.l === this.site)];
     }
   };
   function d3_geom_voronoiRedBlackTree() {
