@@ -1,4 +1,4 @@
----
+﻿---
 layout: tutorial
 title: A Bar Chart, Part 2
 ---
@@ -301,8 +301,8 @@ empty.
 Yet, the above animation is poor because it lacks object constancy through the
 transition: it does not convey the changing data accurately. Rather than
 updating values in-place, the bars should slide to the left, so that each bar
-corresponds to the same point in time across the transition. Do this using a
-*data join*, to bind nodes to data by timestamp rather than index:
+corresponds to the same point in time across the transition. Do this using a optional data() 
+parameter to bind nodes to data by timestamp rather than index:
 
 {% highlight js linenos %}
 function redraw() {
